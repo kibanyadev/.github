@@ -1,0 +1,31 @@
+name: 'CI: Actions Lint'
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+  schedule:
+    - cron: '30 06 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  actionlint:
+    name: Actionlint
+    permissions:
+      contents: read
+    uses: kibanyadev/.github/.github/workflows/reusable-actionlint.yml@0c90490186f999ef2416c17a2883b4085e492e2e # main
+
+  zizmor:
+    name: Zizmor
+    permissions:
+      contents: read
+    uses: kibanyadev/.github/.github/workflows/reusable-zizmor.yml@0c90490186f999ef2416c17a2883b4085e492e2e # main

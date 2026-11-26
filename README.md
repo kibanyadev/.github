@@ -12,6 +12,7 @@ repository in the organization only when they come from a public `.github` repos
 | [`.github/ISSUE_TEMPLATE/`](./.github/ISSUE_TEMPLATE) | Default issue forms (bug, feature, task); blank issues off. |
 | [`.github/pull_request_template.md`](./.github/pull_request_template.md) | Default pull request template. |
 | [`.github/workflows/`](./.github/workflows) | The reusable CI workflows (`reusable-*.yml`) and this repo's own CI. |
+| [`workflow-templates/`](./workflow-templates) | Starter workflows offered in the Actions tab; they call the reusable workflows here, pinned by commit SHA. |
 | [`brand/`](./brand) | The 基盤屋 seal (SVG, PNG) and the favicon. Red is `#C52E13`. |
 
 A repository that ships its own version of one of these files overrides the default.

@@ -1,0 +1,7 @@
+{
+  "name": "CI: Actions Lint",
+  "description": "Lint workflow files with actionlint and zizmor using the shared reusable workflows.",
+  "iconName": "octicon shield-check",
+  "categories": ["Continuous integration", "Code Scanning"],
+  "filePatterns": ["^\\.github/workflows/.*\\.ya?ml$"]
+}
