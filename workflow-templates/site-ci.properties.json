@@ -1,0 +1,7 @@
+{
+  "name": "Site: CI",
+  "description": "Build and verify a static site using the shared reusable workflow.",
+  "iconName": "octicon workflow",
+  "categories": ["Continuous integration", "JavaScript"],
+  "filePatterns": ["^package\\.json$"]
+}
