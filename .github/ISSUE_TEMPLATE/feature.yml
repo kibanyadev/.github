@@ -1,0 +1,39 @@
+name: Feature
+description: A parent issue for a feature or deliverable. Steps become sub-issues.
+title: "M<n> <title>"
+labels: ["feature"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What this feature achieves and for whom. Two or three lines, with a link to the plan section if there is one.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: Observable conditions that close this issue.
+      placeholder: |
+        - [ ] Condition one
+        - [ ] Condition two
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps
+      description: One checkbox per step, one step per PR. Each becomes a sub-issue (M<n>.<k>), then this list goes.
+      placeholder: |
+        - [ ] Step one
+        - [ ] Step two
+    validations:
+      required: false
+  - type: input
+    id: milestone
+    attributes:
+      label: Milestone
+      description: The phase or release this belongs to, for example "M2 Beta". Set it on the issue after creating it.
+    validations:
+      required: false

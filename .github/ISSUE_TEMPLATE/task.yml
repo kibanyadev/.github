@@ -1,0 +1,28 @@
+name: Task
+description: One step of a feature. Create it as a sub-issue of the parent.
+title: "M<n>.<k> <title>"
+labels: ["task"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What
+      description: The change in two to four lines, with links to the design or plan sections.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: Observable conditions. One step is one PR.
+      placeholder: |
+        - [ ] Condition one
+    validations:
+      required: true
+  - type: input
+    id: blocked-by
+    attributes:
+      label: Blocked by
+      description: Issue numbers that must close first, for example "#12". After creating the issue, record this as a dependency, not only as text.
+    validations:
+      required: false
