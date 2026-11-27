@@ -31,10 +31,12 @@ Adopting a reusable workflow changes the check context from the bare job name to
 old bare context must update its required contexts in the same change (list both old and
 new during the transition, then drop the old one).
 
-Pin the call by full commit SHA, with the branch or tag in a comment. Dependabot
-(`github-actions` ecosystem) keeps the SHA current. The `@<sha> # main` snippets below
-are placeholders: callers must replace `<sha>` with the real full 40-character SHA of
-`main` after this repo's change is merged.
+Pin the call by full commit SHA, with the release tag in a comment. Dependabot
+(`github-actions` ecosystem) keeps the SHA current. The `@<sha> # vX.Y.Z` snippets below
+are placeholders: callers must replace `<sha>` with the full 40-character SHA of a release
+tag and `vX.Y.Z` with that tag. The current release is `v1.0.0`
+(`5363fd3d2c7bc0a6f00f69bda52352264765628d`). Do not use `# main`: zizmor's
+`ref-version-mismatch` audit fails it as soon as `main` moves.
 
 | Workflow | Called job name | Caller job permissions |
 |---|---|---|
@@ -51,7 +53,7 @@ jobs:
   actionlint:
     permissions:
       contents: read
-    uses: kibanyadev/.github/.github/workflows/reusable-actionlint.yml@<sha> # main
+    uses: kibanyadev/.github/.github/workflows/reusable-actionlint.yml@<sha> # vX.Y.Z
 ```
 
 ### reusable-zizmor.yml
@@ -67,7 +69,7 @@ jobs:
   zizmor:
     permissions:
       contents: read
-    uses: kibanyadev/.github/.github/workflows/reusable-zizmor.yml@<sha> # main
+    uses: kibanyadev/.github/.github/workflows/reusable-zizmor.yml@<sha> # vX.Y.Z
 ```
 
 ### reusable-site-ci.yml
@@ -91,7 +93,7 @@ jobs:
   site:
     permissions:
       contents: read
-    uses: kibanyadev/.github/.github/workflows/reusable-site-ci.yml@<sha> # main
+    uses: kibanyadev/.github/.github/workflows/reusable-site-ci.yml@<sha> # vX.Y.Z
     with:
       playwright-filter: '@scope/app'
 ```
